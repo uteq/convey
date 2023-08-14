@@ -2,6 +2,7 @@
 
 namespace Uteq\LaravelVoltWebPush;
 
+use Illuminate\Support\Facades\Blade;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
@@ -14,7 +15,8 @@ class WebPushServiceProvider extends PackageServiceProvider
         $package
             ->name('laravel-volt-web-push')
             ->hasConfigFile()
-            ->hasViews()
-            ->hasViewComponent('web-push', 'subscribe-button');
+            ->hasViews();
+
+        Blade::anonymousComponentNamespace(__DIR__ . '/../resources/views/components', 'web-push');
     }
 }
