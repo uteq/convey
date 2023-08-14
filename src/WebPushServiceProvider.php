@@ -17,6 +17,6 @@ class WebPushServiceProvider extends PackageServiceProvider
             ->hasConfigFile()
             ->hasViews();
 
-        Blade::anonymousComponentNamespace(__DIR__ . '/../resources/views/components', 'web-push');
+        Blade::anonymousComponentNamespace(__DIR__.'/../resources/views/components', 'web-push');
     }
 }
