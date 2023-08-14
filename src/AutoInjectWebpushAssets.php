@@ -7,11 +7,15 @@ use Illuminate\Support\Facades\Blade;
 
 class AutoInjectWebpushAssets
 {
-    static function provide()
+    public static function provide()
     {
         app('events')->listen(RequestHandled::class, function ($handled) {
-            if (!str($handled->response->headers->get('content-type'))->contains('text/html')) return;
-            if (!method_exists($handled->response, 'status') || $handled->response->status() !== 200) return;
+            if (! str($handled->response->headers->get('content-type'))->contains('text/html')) {
+                return;
+            }
+            if (! method_exists($handled->response, 'status') || $handled->response->status() !== 200) {
+                return;
+            }
 
             $html = $handled->response->getContent();
 
@@ -21,7 +25,7 @@ class AutoInjectWebpushAssets
         });
     }
 
-    static function injectAssets($html)
+    public static function injectAssets($html)
     {
         $styles = '';
         $scripts = Blade::render(<<<'html'
@@ -43,19 +47,18 @@ class AutoInjectWebpushAssets
             'vapidPublicKey' => config('webpush.vapid.public_key'),
         ]);
 
-
         $html = str($html);
 
         if ($html->test('/<\s*\/\s*head\s*>/i') && $html->test('/<\s*\/\s*body\s*>/i')) {
             return $html
-                ->replaceMatches('/(<\s*\/\s*head\s*>)/i', $styles . '$1')
-                ->replaceMatches('/(<\s*\/\s*body\s*>)/i', $scripts . '$1')
+                ->replaceMatches('/(<\s*\/\s*head\s*>)/i', $styles.'$1')
+                ->replaceMatches('/(<\s*\/\s*body\s*>)/i', $scripts.'$1')
                 ->toString();
         }
 
         return $html
-            ->replaceMatches('/(<\s*html(?:\s[^>])*>)/i', '$1' . $styles)
-            ->replaceMatches('/(<\s*\/\s*html\s*>)/i', $scripts . '$1')
+            ->replaceMatches('/(<\s*html(?:\s[^>])*>)/i', '$1'.$styles)
+            ->replaceMatches('/(<\s*\/\s*html\s*>)/i', $scripts.'$1')
             ->toString();
     }
 }
