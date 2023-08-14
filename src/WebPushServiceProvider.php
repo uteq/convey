@@ -15,6 +15,8 @@ class WebPushServiceProvider extends PackageServiceProvider
             ->name('laravel-volt-web-push')
             ->hasConfigFile()
             ->hasViews()
-            ->hasViewComponents('web-push');
+            ->hasViewComponents('web-push', [
+                'subscribe-button'
+            ]);
     }
 }
