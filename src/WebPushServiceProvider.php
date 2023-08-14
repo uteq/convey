@@ -16,7 +16,7 @@ class WebPushServiceProvider extends PackageServiceProvider
             ->hasConfigFile()
             ->hasViews()
             ->hasViewComponents('web-push', [
-                'subscribe-button'
+                'subscribe-button',
             ]);
     }
 }
