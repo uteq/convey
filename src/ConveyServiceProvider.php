@@ -25,6 +25,6 @@ class ConveyServiceProvider extends PackageServiceProvider
 
     public function boot()
     {
-        Blade::anonymousComponentPath(__DIR__.'/../components', 'webpush');
+        Blade::anonymousComponentPath(__DIR__.'/../components', 'convey');
     }
 }
