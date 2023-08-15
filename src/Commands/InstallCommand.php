@@ -13,9 +13,12 @@ class InstallCommand extends Command
 
     public function handle(): int
     {
-        $this->info('For more info or to run this manually visit https://laravel-notification-channels.com/webpush/#installation');
+        $this->info('For more info or how to run this manually visit https://laravel-notification-channels.com/webpush/#installation');
+
         $this->handleWebpush();
         $this->handleVapidKeys();
+        $this->handleServiceWorkerFile();
+        $this->handleManifestFile();
 
         // TODO
 
@@ -30,11 +33,11 @@ class InstallCommand extends Command
             && config('convey.vapid_private_key');
 
         $question = match ($keysAlreadySet) {
-            true => confirm('VAPID keys are already set in you .env file do you want to overwrite them?'),
-            false => confirm('Would you like to generate the VAPID keys?'),
+            true => 'VAPID keys are already set in you .env file do you want to overwrite them?',
+            false => 'Would you like to generate the VAPID keys?',
         };
 
-        if (! $question) {
+        if (! confirm($question)) {
             return;
         }
 
@@ -69,6 +72,34 @@ class InstallCommand extends Command
                 '--provider' => 'NotificationChannels\WebPush\WebPushServiceProvider',
                 '--tag' => 'config',
             ]);
+        }
+    }
+
+    public function handleServiceWorkerFile()
+    {
+        $fileAlreadyExists = file_exists(public_path('service-worker.js'));
+
+        $question = match ($fileAlreadyExists) {
+            true => 'A service-worker.json file already exists in your public folder do you want to overwrite it?',
+            false => 'Would you like to generate the service-worker.js file in your public folder?',
+        };
+
+        if (confirm($question)) {
+            // TODO copy service worker file
+        }
+    }
+
+    public function handleManifestFile()
+    {
+        $fileAlreadyExists = file_exists(public_path('manifest.json'));
+
+        $question = match ($fileAlreadyExists) {
+            true => 'A manifest.json file already exists in your public folder do you want to overwrite it?',
+            false => 'Would you like to generate the manifest.json file in your public folder?',
+        };
+
+        if (confirm($question)) {
+            // TODO copy service worker file
         }
     }
 }
