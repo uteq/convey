@@ -23,7 +23,7 @@ trait HasWebpush
         $this->webpushNotifier = $notifier;
     }
 
-    #[On('webpush::subscribe')]
+    #[On('convey::subscribe')]
     public function subscribe($subscription)
     {
         $this->user->updatePushSubscription(
@@ -33,10 +33,10 @@ trait HasWebpush
             contentEncoding: 'aesgcm',
         );
 
-        $this->dispatch('webpush::subscribed');
+        $this->dispatch('convey::subscribed');
     }
 
-    #[On('webpush::subscribed')]
+    #[On('convey::subscribed')]
     public function subscribed()
     {
         if (! $this->webpushNotifier) {

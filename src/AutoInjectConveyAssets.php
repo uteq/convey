@@ -95,7 +95,7 @@ class AutoInjectConveyAssets
             })
         </script>
         html, [
-            'vapidPublicKey' => config('convey.vapid.public_key'),
+            'vapidPublicKey' => config('convey.vapid_public_key'),
         ]);
 
         $html = str($html);
