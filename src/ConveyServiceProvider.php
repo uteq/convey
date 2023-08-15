@@ -16,8 +16,11 @@ class ConveyServiceProvider extends PackageServiceProvider
         $package
             ->name('convey')
             ->hasConfigFile()
-            ->hasViews()
-            ->hasCommands(InstallCommand::class);
+            ->hasViews();
+
+        $this->commands([
+            InstallCommand::class
+        ]);
     }
 
     public function boot()

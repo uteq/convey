@@ -43,7 +43,7 @@ class AutoInjectConveyAssets
 
             document.addEventListener('alpine:init', () => {
 
-                const webpush = {
+                const convey = {
                     loading: false,
 
                     async askPushPermission() {
@@ -78,24 +78,24 @@ class AutoInjectConveyAssets
                             return;
                         }
 
-                        await Livewire.dispatch('webpush::subscribe', {subscription: subscription});
+                        await Livewire.dispatch('convey::subscribe', {subscription: subscription});
                     }
                 };
 
-                Alpine.directive('webpush-subscribe', (el, {value}) => {
+                Alpine.directive('convey-subscribe', (el, {value}) => {
 
-                    value = webpush;
+                    value = convey;
 
                      el.addEventListener('click', () => {
-                        webpush.askPushPermission();
+                        convey.askPushPermission();
                      });
                 })
 
-                Alpine.data('webpush', () => (webpush));
+                Alpine.data('convey', () => (convey));
             })
         </script>
         html, [
-            'vapidPublicKey' => config('webpush.vapid.public_key'),
+            'vapidPublicKey' => config('convey.vapid.public_key'),
         ]);
 
         $html = str($html);
