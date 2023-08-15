@@ -1,6 +1,6 @@
 <?php
 
-// config for Uteq/WebPush
+// config for Uteq/Convey
 return [
 
 ];

@@ -1,13 +1,13 @@
 {
-    "name": "uteq/laravel-volt-web-push",
+    "name": "uteq/convey",
     "description": "A Laravel Volt Web Push solution using Laravel web push",
     "keywords": [
         "uteq",
         "laravel",
-        "laravel-volt-web-push",
+        "convey",
         "web-push"
     ],
-    "homepage": "https://github.com/uteq/laravel-volt-web-push",
+    "homepage": "https://github.com/uteq/convey",
     "license": "MIT",
     "authors": [
         {
@@ -21,6 +21,7 @@
         "illuminate/contracts": "^10.0",
         "laravel-notification-channels/webpush": "^7.1",
         "laravel/folio": "^1.0@beta",
+        "laravel/prompts": "^0.1.4",
         "livewire/livewire": "^3.0@beta",
         "livewire/volt": "^1.0@beta",
         "spatie/laravel-package-tools": "^1.14.0"
@@ -40,13 +41,13 @@
     },
     "autoload": {
         "psr-4": {
-            "Uteq\\LaravelVoltWebPush\\": "src/",
-            "Uteq\\LaravelVoltWebPush\\Database\\Factories\\": "database/factories/"
+            "Uteq\\Convey\\": "src/",
+            "Uteq\\Convey\\Database\\Factories\\": "database/factories/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Uteq\\LaravelVoltWebPush\\Tests\\": "tests/"
+            "Uteq\\Convey\\Tests\\": "tests/"
         }
     },
     "scripts": {
@@ -66,10 +67,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Uteq\\LaravelVoltWebPush\\WebPushServiceProvider"
+                "Uteq\\Convey\\ConveyServiceProvider"
             ],
             "aliases": {
-                "LaravelVoltWebPush": "Uteq\\LaravelVoltWebPush\\Facades\\WebPush"
+                "Convey": "Uteq\\Convey\\Facades\\Convey"
             }
         }
     },

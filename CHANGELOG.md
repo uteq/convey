@@ -1,3 +1,3 @@
 # Changelog
 
-All notable changes to `laravel-volt-web-push` will be documented in this file.
+All notable changes to `convey` will be documented in this file.

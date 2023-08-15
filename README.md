@@ -1,15 +1,15 @@
-# A Laravel Volt Web Push solution using Laravel web push
+# Convery - Web Push for Laravel
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/uteq/laravel-volt-web-push.svg?style=flat-square)](https://packagist.org/packages/uteq/laravel-volt-web-push)
-[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/uteq/laravel-volt-web-push/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/uteq/laravel-volt-web-push/actions?query=workflow%3Arun-tests+branch%3Amain)
-[![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/uteq/laravel-volt-web-push/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/uteq/laravel-volt-web-push/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
-[![Total Downloads](https://img.shields.io/packagist/dt/uteq/laravel-volt-web-push.svg?style=flat-square)](https://packagist.org/packages/uteq/laravel-volt-web-push)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/uteq/convey.svg?style=flat-square)](https://packagist.org/packages/uteq/convey)
+[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/uteq/convey/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/uteq/convey/actions?query=workflow%3Arun-tests+branch%3Amain)
+[![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/uteq/convey/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/uteq/convey/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
+[![Total Downloads](https://img.shields.io/packagist/dt/uteq/convey.svg?style=flat-square)](https://packagist.org/packages/uteq/convey)
 
 This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.
 
 ## Support us
 
-[<img src="https://github-ads.s3.eu-central-1.amazonaws.com/laravel-volt-web-push.jpg?t=1" width="419px" />](https://spatie.be/github-ad-click/laravel-volt-web-push)
+[<img src="https://github-ads.s3.eu-central-1.amazonaws.com/convey.jpg?t=1" width="419px" />](https://spatie.be/github-ad-click/convey)
 
 We invest a lot of resources into creating [best in class open source packages](https://spatie.be/open-source). You can support us by [buying one of our paid products](https://spatie.be/open-source/support-us).
 
@@ -20,20 +20,20 @@ We highly appreciate you sending us a postcard from your hometown, mentioning wh
 You can install the package via composer:
 
 ```bash
-composer require uteq/laravel-volt-web-push
+composer require uteq/convey
 ```
 
 You can publish and run the migrations with:
 
 ```bash
-php artisan vendor:publish --tag="laravel-volt-web-push-migrations"
+php artisan vendor:publish --tag="convey-migrations"
 php artisan migrate
 ```
 
 You can publish the config file with:
 
 ```bash
-php artisan vendor:publish --tag="laravel-volt-web-push-config"
+php artisan vendor:publish --tag="convey-config"
 ```
 
 This is the contents of the published config file:
@@ -46,14 +46,14 @@ return [
 Optionally, you can publish the views using
 
 ```bash
-php artisan vendor:publish --tag="laravel-volt-web-push-views"
+php artisan vendor:publish --tag="convey-views"
 ```
 
 ## Usage
 
 ```php
-$laravelVoltWebPush = new Uteq\LaravelVoltWebPush();
-echo $laravelVoltWebPush->echoPhrase('Hello, Uteq!');
+$Convey = new Uteq\Convey();
+echo $Convey->echoPhrase('Hello, Uteq!');
 ```
 
 ## Testing

@@ -1,16 +1,16 @@
 <?php
 
-namespace Uteq\LaravelVoltWebPush\Facades;
+namespace Uteq\Convey\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
 /**
- * @see \Uteq\LaravelVoltWebPush\WebPush
+ * @see \Uteq\Convey\Convey
  */
-class WebPush extends Facade
+class Convey extends Facade
 {
     protected static function getFacadeAccessor()
     {
-        return \Uteq\LaravelVoltWebPush\WebPush::class;
+        return \Uteq\Convey\Convey::class;
     }
 }
