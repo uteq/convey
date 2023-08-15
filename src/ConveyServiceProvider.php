@@ -19,7 +19,7 @@ class ConveyServiceProvider extends PackageServiceProvider
             ->hasViews();
 
         $this->commands([
-            InstallCommand::class
+            InstallCommand::class,
         ]);
     }
 

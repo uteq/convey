@@ -3,8 +3,9 @@
 namespace Uteq\Convey\Concerns;
 
 use App\Models\User;
-use App\Notifications\WebpushSubscribed;
-use Livewire\Attributes\{Computed, On, Locked};
+use Livewire\Attributes\Computed;
+use Livewire\Attributes\Locked;
+use Livewire\Attributes\On;
 
 trait HasWebpush
 {
@@ -38,7 +39,9 @@ trait HasWebpush
     #[On('webpush::subscribed')]
     public function subscribed()
     {
-        if (! $this->webpushNotifier) return;
+        if (! $this->webpushNotifier) {
+            return;
+        }
 
         $this->user->notify(new ($this->webpushNotifier));
     }

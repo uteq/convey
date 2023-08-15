@@ -3,7 +3,9 @@
 namespace Uteq\Convey\Commands;
 
 use Illuminate\Console\Command;
-use function Laravel\Prompts\{confirm, select};
+
+use function Laravel\Prompts\confirm;
+use function Laravel\Prompts\select;
 
 class InstallCommand extends Command
 {
@@ -16,7 +18,6 @@ class InstallCommand extends Command
         $this->handleVapidKeys();
 
         // TODO
-
 
         $this->comment('All done');
 
